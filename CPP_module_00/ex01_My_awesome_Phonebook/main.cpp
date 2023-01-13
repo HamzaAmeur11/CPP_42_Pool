@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:25:38 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 17:56:13 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/13 18:51:32 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,10 @@ int main()
 		else if (str == "ADD" && book.NumberContact == 7){
 			book.relese();
 			book.add();
-		}
-		else if (str == "SEARCH")
+		}else if (str == "SEARCH")
 			book.search();
 		else
 			std::cout << "AX KADIIR A SHBYY ??\n";
-
-
 	}
 	return (0);
 }

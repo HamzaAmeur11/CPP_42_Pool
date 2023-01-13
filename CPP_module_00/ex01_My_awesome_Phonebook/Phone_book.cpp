@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:52 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 17:55:03 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/13 20:40:18 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,23 @@ void PhoneBook::printTable()
 }
 
 void PhoneBook::search(){
-	int id;
+	std::string id;
+	int			id_;
 
 	printTable();
 	std::cout << "enter index of the contact : ";
-	if (!(std::cin >> id) || std::cin.eof())
+	std::cin >> id_;
+	if (!getline(std::cin , id)){
+		std::cout << "Bad Err\n";
 		return ;
-	if (id < 0 || id > NumberContact)
+	}
+	if (std::cin.fail() || std::cin.eof())
+		return ;
+	id_ = std::stoi(id);
+	if (id_ < 0 || id_ > NumberContact)
 		std::cout << "wrong err\n";
 	else
-		printCte(id);
+		printCte(id_);
 }
 
 void PhoneBook::printCte(int id){
