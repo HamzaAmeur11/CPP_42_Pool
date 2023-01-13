@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phone_book.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:52 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 16:04:40 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/13 17:55:03 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook(){NumberContact = 0;}
 
 PhoneBook::~PhoneBook(){std::cout<<"Byy"<<std::endl;}
+
 
 int PhoneBook::ReadData(std::string str, std::string &data)
 {
@@ -52,14 +53,31 @@ void PhoneBook::relese(){
 	}
 }
 
-void PhoneBook::PrintTbl(){
+std::string PhoneBook::check_len(const std::string str){
+	if (str.length() < 10)
+		return str;
+	else
+		return str.substr(0, 9);
+}
 
+void PhoneBook::printTable()
+{
+	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "|" << "    Id    " << "|" << "  F Name  " << "|" << "  L Name  " << "|" << " NickName " << "|" ;
+	for (int x = 0 ; x < NumberContact ; x++){
+		std::cout << "\n_____________________________________________" << std::endl;
+		std::cout << std::setw(10) << x << "|" ;
+		std::cout << std::setw(10) << check_len(Cnt[x].FirstName) << "|";
+		std::cout << std::setw(10) << check_len(Cnt[x].LastName) << "|";
+		std::cout << std::setw(10) << check_len(Cnt[x].NickName) << "|";
+	}
+		std::cout << "\n_____________________________________________" << std::endl;
 }
 
 void PhoneBook::search(){
 	int id;
 
-	PrintTbl();
+	printTable();
 	std::cout << "enter index of the contact : ";
 	if (!(std::cin >> id) || std::cin.eof())
 		return ;
@@ -71,7 +89,9 @@ void PhoneBook::search(){
 
 void PhoneBook::printCte(int id){
 	std::cout << "First Name : " << PhoneBook::Cnt[id].FirstName << std::endl;
-	std::cout << "Last Name : " << PhoneBook::Cnt[id].LastName << std::endl;
-	std::cout << "tamara DZEEB iinitializer dakxi li b9a\n";
+	std::cout << "Last Name  : " << PhoneBook::Cnt[id].LastName << std::endl;
+	std::cout << "Phone Num  : " << PhoneBook::Cnt[id].LastName << std::endl;
+	std::cout << "NickName   : " << PhoneBook::Cnt[id].LastName << std::endl;
+	std::cout << "DarSecret  : " << PhoneBook::Cnt[id].LastName << std::endl;
 }
 

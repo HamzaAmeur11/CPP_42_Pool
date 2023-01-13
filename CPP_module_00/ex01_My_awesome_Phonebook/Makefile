@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+         #
+#    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 01:59:27 by hmeur             #+#    #+#              #
-#    Updated: 2023/01/13 15:36:40 by hmeur            ###   ########.fr        #
+#    Updated: 2023/01/12 19:25:27 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,5 +33,5 @@ $(NAME)	: $(OBJS)
 clean:
 	rm -rf $(OBJS)
 
-fclean:	clean
+fclean: clean
 	rm -rf $(NAME)

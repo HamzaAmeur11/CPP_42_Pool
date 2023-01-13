@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:25:38 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 15:24:23 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/13 17:56:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main()
 		std::cout << "Enter ADD || SEARCH || EXIT\n";
 		if (!getline(std::cin, str))
 			return (1);
-		//if (!(std::cin >> str))
-		//		return 1;
-		std::cout << str<< std::endl;
-		if (str == "EXIT")
+		std::cout << "|" << str<< "|" << std::endl;
+		if (str.length() == 0)
+			continue;
+		else if (str == "EXIT")
 			return (std::cout << "Byyy\n", 0);
 		else if (str == "ADD" && book.NumberContact < 7)
 			book.add();
