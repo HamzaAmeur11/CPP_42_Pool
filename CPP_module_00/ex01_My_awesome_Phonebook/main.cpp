@@ -6,7 +6,7 @@
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:25:38 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/12 02:26:37 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/13 15:24:23 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int main()
 	while(42)
 	{
 		std::cout << "Enter ADD || SEARCH || EXIT\n";
-		std::cin >> str;
+		if (!getline(std::cin, str))
+			return (1);
+		//if (!(std::cin >> str))
+		//		return 1;
+		std::cout << str<< std::endl;
 		if (str == "EXIT")
 			return (std::cout << "Byyy\n", 0);
 		else if (str == "ADD" && book.NumberContact < 7)

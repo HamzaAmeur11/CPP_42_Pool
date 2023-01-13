@@ -6,7 +6,7 @@
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:52 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/12 02:31:38 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/13 16:04:40 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,34 @@ PhoneBook::PhoneBook(){NumberContact = 0;}
 
 PhoneBook::~PhoneBook(){std::cout<<"Byy"<<std::endl;}
 
-void PhoneBook::add(){
-	std::cout << " Enter First Name : ";
-	std::cin >> PhoneBook::Cnt[NumberContact].FirstName;
-	std::cout << "\n Enter Last Name : ";
-	std::cin >> PhoneBook::Cnt[NumberContact].LastName;
-	std::cout << "\n Enter Phone Number : ";
-	std::cin >> PhoneBook::Cnt[NumberContact].PhoneNum;
-	std::cout << "\n Enter NickName : ";
-	std::cin >> PhoneBook::Cnt[NumberContact].NickName;
-	std::cout << "\n Enter Darkest Secret : ";
-	std::cin >> PhoneBook::Cnt[NumberContact].DarkestSecret;
+int PhoneBook::ReadData(std::string str, std::string &data)
+{
+	std::cout << str;
+	if (!getline(std::cin, data) || data.length() == 0)
+		return (std::cout << "Bad Error\n", 1);
+	return (0);
+}
+
+int PhoneBook::add(){
+	if (ReadData("\tEnter First Name     : " , PhoneBook::Cnt[NumberContact].FirstName))
+		return 1;
+
+	if(ReadData("\tEnter Last Name      : " , PhoneBook::Cnt[NumberContact].LastName))
+		return 1;
+
+	if(ReadData("\tEnter Phone Number   : " , PhoneBook::Cnt[NumberContact].PhoneNum))
+		return 1;
+
+	if (ReadData("\tEnter NickName       : " , PhoneBook::Cnt[NumberContact].NickName))
+		return 1;
+
+	if(ReadData("\tEnter Darkest Secret : ", PhoneBook::Cnt[NumberContact].DarkestSecret))
+		return 1;
+
 	if (NumberContact <= 7)
 		NumberContact++;
+	std::cout<<std::endl;
+	return 0;
 }
 
 void PhoneBook::relese(){
@@ -37,13 +52,19 @@ void PhoneBook::relese(){
 	}
 }
 
+void PhoneBook::PrintTbl(){
+
+}
+
 void PhoneBook::search(){
 	int id;
 
+	PrintTbl();
 	std::cout << "enter index of the contact : ";
-	std::cin >> id;
+	if (!(std::cin >> id) || std::cin.eof())
+		return ;
 	if (id < 0 || id > NumberContact)
-		std::cout << "\nwrong err\n";
+		std::cout << "wrong err\n";
 	else
 		printCte(id);
 }

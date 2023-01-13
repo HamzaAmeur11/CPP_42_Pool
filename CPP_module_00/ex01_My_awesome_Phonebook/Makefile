@@ -6,7 +6,7 @@
 #    By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 01:59:27 by hmeur             #+#    #+#              #
-#    Updated: 2023/01/12 02:24:33 by hmeur            ###   ########.fr        #
+#    Updated: 2023/01/13 15:36:40 by hmeur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(NAME)	: $(OBJS)
 	@$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
+	rm -rf $(OBJS)
 
-fclean:
-	@re -rf $(NAME)
+fclean:	clean
+	rm -rf $(NAME)

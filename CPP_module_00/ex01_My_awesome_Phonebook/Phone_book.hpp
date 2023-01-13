@@ -6,7 +6,7 @@
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:27:22 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/12 02:20:23 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/13 15:45:23 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ class PhoneBook{
 		PhoneBook();
 		~PhoneBook();
 		int NumberContact;
-		void add();
+		int add();
+		int ReadData(std::string str, std::string &data);
 		void search();
+		void PrintTbl();
 		void printCte(int id);
 		void relese();
 };
