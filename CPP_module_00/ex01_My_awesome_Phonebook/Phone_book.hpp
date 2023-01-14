@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:27:22 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 17:38:52 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/14 01:25:46 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class PhoneBook{
 		int NumberContact;
 		int add();
 		void search();
+		int		search(int id);
 		void printCte(int id);
 		void relese();
 		

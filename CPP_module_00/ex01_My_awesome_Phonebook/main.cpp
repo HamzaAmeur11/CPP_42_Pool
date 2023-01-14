@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:25:38 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/13 18:51:32 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/14 01:31:37 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ int main()
 
 	while(42)
 	{
-		std::cout << "Enter ADD || SEARCH || EXIT\n";
+		std::cout << "Enter ADD || SEARCH || EXIT : ";
 		if (!getline(std::cin, str))
 			return (1);
-		std::cout << "|" << str<< "|" << std::endl;
-		if (str.length() == 0)
+		if (str.length() == 0){
 			continue;
-		else if (str == "EXIT")
-			return (std::cout << "Byyy\n", 0);
-		else if (str == "ADD" && book.NumberContact < 7)
+		}
+		std::cout << "|" << str <<"|" << std::endl;
+		if (str == "EXIT"){
+			return 0;
+		}else if (str == "ADD" && book.NumberContact <= 7){
 			book.add();
-		else if (str == "ADD" && book.NumberContact == 7){
+		}else if (str == "ADD" && book.NumberContact == 8){
+			book.NumberContact--;
 			book.relese();
 			book.add();
-		}else if (str == "SEARCH")
+		}else if (str == "SEARCH"){
 			book.search();
-		else
+		}else
 			std::cout << "AX KADIIR A SHBYY ??\n";
 	}
 	return (0);
