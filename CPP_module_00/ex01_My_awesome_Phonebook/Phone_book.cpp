@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:52 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/14 01:31:18 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/14 02:33:28 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int PhoneBook::ReadData(std::string str, std::string &data)
 }
 
 int PhoneBook::add(){
+
 	if (ReadData("\tEnter First Name     : " , PhoneBook::Cnt[NumberContact].FirstName))
 		return 1;
 
@@ -98,11 +99,11 @@ void PhoneBook::search(){
 	printTable();
 	while (1){
 		std::cout << "enter index of the contact : ";
-		if (!getline(std::cin , id) || id.length() == 0)
+		if (!getline(std::cin , id))
 			std::cout << "Bad Err\n";
 		if (!std::cin.good())
 			return ;
-		else if (id[0] <= '0' || id[0] > '8' || id[1] != 0)
+		else if (id.length() == 0 || id[0] <= '0' || id[0] > '8' || id[1] != 0)
 			std::cout << "Bad ARG\n";
 		else{
 			if (search(std::stoi(id)) == 0)

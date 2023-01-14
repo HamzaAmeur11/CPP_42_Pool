@@ -78,7 +78,7 @@ Smia::~Smia()
 	std::cout << "by from " << str << std::endl;
 }
 
-
+//________________Member Function ex ::
 std::string& Smia::get_str()
 {
 	std::cout << "str : " << str ;
