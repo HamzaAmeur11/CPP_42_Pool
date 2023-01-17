@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:52 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/14 19:14:19 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:49:39 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,10 @@ int	PhoneBook::search(int id){
 
 void PhoneBook::search(){
 	std::string id;
-	int			id_;
 
 	printTable();
 	if (NumberContact == 0){
-		std::cout << "Phone book empty\n" ;
+		std::cout << "Phone book empty" << std::endl;
 		return ;
 	}
 	while (1){
@@ -119,11 +118,6 @@ void PhoneBook::search(){
 				continue;
 		}
 	}
-	id_ = std::stoi(id);
-	if (id_ < 0 || id_ > NumberContact)
-		std::cout << "wrong err\n";
-	else
-		printCte(id_ - 1);
 }
 
 void PhoneBook::printCte(int id){

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 12:45:36 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/16 12:45:39 by hameur           ###   ########.fr       */
+/*   Created: 2023/01/17 18:40:47 by hameur            #+#    #+#             */
+/*   Updated: 2023/01/17 18:53:34 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include <string>
 #include <iostream>
 
-int main(int c , char **v)
-{
-	if (c == 1)
-		return (std::cout <<"* LOUD AND UNBEARABLE FEEDBACK NOISE *"<< std::endl, 1);
-	int i = 0, j = 0;
-	while (v[++i] != NULL)
-	{
-		j = 0;
-		while (v[i][j] != 0)
-			std::cout << (char)toupper(v[i][j++]);
-	}
-	return (std::cout << std::endl, 0);
-}
+class Zombie{
+	private:
+		std::string name;
+	public:
+		void	set_name(std::string Newname);
+		void	announce(void);
+};
+
+
