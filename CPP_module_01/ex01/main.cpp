@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:40:47 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/19 00:56:54 by hmeur            ###   ########.fr       */
+/*   Created: 2023/01/19 13:01:52 by hmeur             #+#    #+#             */
+/*   Updated: 2023/01/19 13:54:04 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Zombie.hpp"
 
-#include <string>
-#include <iostream>
-
-class Zombie{
-	private:
-		std::string name;
-	public:
-		Zombie(std::string Newname);
-		~Zombie();
-		void	announce(void);
-};
-
-
-void	randomChump(std::string name);
-Zombie* newZombie(std::string name);
+int main() {
+	std::string name = "Zombies";
+	Zombie* zombies = zombieHorde(5, name);
+	if (zombies != NULL)
+		delete[] zombies;
+	return 0;
+}

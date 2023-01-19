@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:57:20 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/17 18:57:54 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/19 00:54:27 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 void	randomChump(std::string name){
-	
+	Zombie z(name);
+	z.announce();
 }
