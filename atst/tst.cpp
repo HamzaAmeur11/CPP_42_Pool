@@ -102,3 +102,13 @@ int main(){
 
 
 }
+
+
+/*
+int main() {
+    {
+        int x = 5;
+    }
+    std::cout << x; // this will cause an error, x is OUT OF SCOP
+}
+*/

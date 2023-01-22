@@ -6,7 +6,7 @@
 #    By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 15:08:30 by hmeur             #+#    #+#              #
-#    Updated: 2023/01/19 15:13:00 by hmeur            ###   ########.fr        #
+#    Updated: 2023/01/22 17:22:50 by hmeur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ all:	$(NAME)
 		@echo "Meking complete"
 
 $(NAME)	: $(OBJS)
-	@$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.cpp
-	@$(CC) $(CPPFLAGS) -c $<
+	$(CC) $(CPPFLAGS) -c $<
 
 clean:
 	rm -rf $(OBJS)
