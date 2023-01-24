@@ -51,6 +51,10 @@
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
 		"utility": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"__split_buffer": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"stack": "cpp"
 	}
 }

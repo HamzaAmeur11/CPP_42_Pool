@@ -6,20 +6,17 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 15:08:30 by hmeur             #+#    #+#              #
-#    Updated: 2023/01/22 18:37:37 by hameur           ###   ########.fr        #
+#    Updated: 2023/01/24 17:00:25 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Unnecessary_violence
+NAME = Replace
 
 CC = g++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC =	main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
-		Weapon.cpp \
 
 OBJS = $(SRC:%.cpp=%.o)
 

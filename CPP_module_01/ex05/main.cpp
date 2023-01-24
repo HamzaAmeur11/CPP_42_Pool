@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 14:22:27 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/22 18:37:31 by hameur           ###   ########.fr       */
+/*   Created: 2023/01/24 17:01:35 by hameur            #+#    #+#             */
+/*   Updated: 2023/01/24 22:27:39 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Harl.hpp"
 
-#include "Weapon.hpp"
-
-class HumanB{
-	private:
-		std::string name;
-		Weapon *weapon;
-	public:
-		HumanB(std::string newName);
-		void	setName(std::string newName);
-		std::string &getName();
-		void setWeapon(Weapon &newWeapon);
-		void attack();
-};
-
-
+int main(){
+	Harl h;
+	h.complain("INFO");
+}
