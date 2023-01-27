@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:48:36 by hmeur             #+#    #+#             */
-/*   Updated: 2023/01/19 00:52:33 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/26 16:18:48 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie(){}
 
 Zombie::Zombie(std::string name){
 	Zombie::name = name;

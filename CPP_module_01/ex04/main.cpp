@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 22:13:37 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/24 17:00:42 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:11:09 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 void replace(std::string &line, std::string &s1, std::string &s2){
 	std::string::size_type n = line.find(s1);
 	while (std::string::npos != n){
-		std::cout << "line before " << line << std::endl;
 		line.erase(n, s1.length());
 		line.insert(n, s2);
 		n = line.find(s1, n);
-		std::cout << "line after " << line << std::endl;
+		if (n == 0)
+			return ;
 	}
 }
 
@@ -38,10 +38,13 @@ int main(int c, char **v){
 	std::ofstream MyFile(filename + ".replace");
 	if ( MyFile.fail() )
 		return (std::cout << "Error creat file" << std::endl , 3);
+	if (MyReadFile.peek() == std::ifstream::traits_type::eof())
+		{std::cout << "EMPTY FILE" << std::endl; return 0;}
 	while (getline(MyReadFile, line)){
 		replace(line, s1, s2);
 		MyFile << line << std::endl;
 	}
+	std::cout << "Done \n" ;
 	MyFile.close();
 	MyReadFile.close();
 }

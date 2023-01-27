@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:01:58 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/24 23:56:41 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/26 23:47:39 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,39 @@ void Harl::warning(){
 }
 
 void Harl::complain( std::string level ){
+	int x = -1;
 	typedef void (Harl::*fcts)(void);
     fcts tab[4] = { &Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
 	std::string cmnts[4] = {"DEBUG", "ERROR", "INFO", "WARNING"};
+// 	enum levels{
+//     DEBUG = 0,
+//     INFO = 1,
+//     WARNING = 2,
+//     ERROR = 3
+//   };
 	for(int i = 0; i < 4; i++){
 		if (level == cmnts[i]){
-			(this->*tab[i])();
-			return ;
+			//(this->*tab[i])();
+			x = i;
+			break;
     	}
 	}
-	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	switch (x)
+	{
+	case 0:
+		(this->*tab[0])();
+		break;
+	case 1:
+		(this->*tab[1])();
+		break;
+	case 2:
+		(this->*tab[2])();
+		break;
+	case 3:
+		(this->*tab[3])();
+		break;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
+	}
 }
