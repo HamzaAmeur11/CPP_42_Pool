@@ -6,7 +6,7 @@
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:27:32 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/30 14:31:57 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/30 13:23:46 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,11 @@ int Fixed::toInt(void) const{
 }
 
 float Fixed::toFloat(void) const{
-	std::cout<< "fx int "  << getRawBits() << std::endl;
-	std::cout << "fx float " << (float)getRawBits() << std::endl;
-	float r = (float(fx) / (1 << fractional));
-	return r;
+  float r = (float(fx) / (1 << fractional));
+  return r;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &c){
-	out << float(c.toFloat());
-	return (out);
+  out << float(c.toFloat());
+  return (out);
 }

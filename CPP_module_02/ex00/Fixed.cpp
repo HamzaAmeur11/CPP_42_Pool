@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:27:32 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/29 22:53:27 by hameur           ###   ########.fr       */
+/*   Updated: 2023/01/30 11:59:24 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed():fx(0){
+Fixed::Fixed()	:fx(0)	{
 	std::cout << "Default constructor called" <<std::endl;
 }
 
