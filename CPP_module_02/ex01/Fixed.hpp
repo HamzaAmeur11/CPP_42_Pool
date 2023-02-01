@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:06:21 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/30 13:20:23 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/30 21:26:11 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed{
 		float toFloat(void)const;
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-		Fixed & operator=(Fixed const &rhs); // rhs = right hand side
+		Fixed & operator=(Fixed const &rhs);
 };
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:06:21 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/30 13:20:23 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/30 21:26:02 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,35 @@ class Fixed{
 		float toFloat(void)const;
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-		Fixed & operator=(Fixed const &rhs); // rhs = right hand side
+		
+		//comparison operators: >, <, >=, <=, == and != .
+		// rhs = right hand side
+		bool 	operator>(Fixed const &rhs);
+		bool 	operator>=(Fixed const &rhs);
+		bool 	operator<(Fixed const &rhs);
+		bool 	operator<=(Fixed const &rhs);
+		bool 	operator==(Fixed const &rhs);
+		bool 	operator!=(Fixed const &rhs);
+
+		//arithmetic operators: +, -, *, and / .
+		Fixed &operator+(Fixed const &rhs);
+		Fixed &operator-(Fixed const &rhs);
+		Fixed &operator*(Fixed const &rhs);
+		Fixed &operator/(Fixed const &rhs);
+
+		//increment / decrement operateurs f++ ++f f-- and --f .
+		Fixed &operator++();
+		Fixed &operator++(int);
+		Fixed &operator--();
+		Fixed &operator--(int);
+
+		Fixed & operator=(Fixed const &rhs);
+
+		static Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);	
+		static Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);	
+
 };
 
 

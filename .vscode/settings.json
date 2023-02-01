@@ -56,6 +56,7 @@
 		"deque": "cpp",
 		"fstream": "cpp",
 		"stack": "cpp",
-		"__functional_03": "cpp"
+		"__functional_03": "cpp",
+		"cmath": "cpp"
 	}
 }

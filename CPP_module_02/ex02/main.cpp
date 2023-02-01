@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:44:36 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/30 14:01:05 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/30 19:27:33 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main(void)
-{
-  Fixed a;
-  Fixed const b(10);
-  Fixed const c(42.42f);
-  Fixed const d(b);
-  a = Fixed(1234.4321f);
-  std::cout << "a is " << a << std::endl;
-  std::cout << "b is " << b << std::endl;
-  std::cout << "c is " << c << std::endl;
-  std::cout << "d is " << d << std::endl;
-  std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-  std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-  std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-  std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-  return 0;
+int main () {
+	
+	Fixed       a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
+
+	std::cout << "a " << a << std::endl;
+	std::cout << "++a "<< ++a << std::endl;
+	std::cout << "a "<< a << std::endl;
+	std::cout << "a++ "<< a++ << std::endl;
+	std::cout << "a "<< a << std::endl;
+
+	std::cout << "b "<< b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
+
+	return 0;
 }

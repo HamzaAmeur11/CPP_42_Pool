@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:27:32 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/30 14:31:57 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/01/30 21:12:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@ Fixed::Fixed(const int &x):fx(x << fractional){
 	std::cout << "int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float &f){
-	std::cout << "float constructor called" << std::endl;
-	fx = roundf(f * (1 << fractional));
-}
 
 
 Fixed::Fixed(Fixed const &rhs){
 	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
+}
+
+Fixed::Fixed(const float &f){
+	std::cout << "float constructor called" << std::endl;
+	fx = roundf(f * (1 << fractional));
+
 }
 void Fixed::setRawBits( int const raw ){
 	this->fx = raw;
@@ -56,13 +58,10 @@ int Fixed::toInt(void) const{
 }
 
 float Fixed::toFloat(void) const{
-	std::cout<< "fx int "  << getRawBits() << std::endl;
-	std::cout << "fx float " << (float)getRawBits() << std::endl;
-	float r = (float(fx) / (1 << fractional));
-	return r;
+	return (float(fx) / (1 << fractional));
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &c){
-	out << float(c.toFloat());
+	out << c.toFloat();
 	return (out);
 }

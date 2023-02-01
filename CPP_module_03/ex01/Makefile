@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/29 22:49:16 by hameur            #+#    #+#              #
-#    Updated: 2023/01/30 19:23:16 by hameur           ###   ########.fr        #
+#    Created: 2023/01/31 23:25:53 by hameur            #+#    #+#              #
+#    Updated: 2023/01/31 23:43:56 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fixed2
+NAME = ScavTrap
+
 
 CC = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC =	main.cpp \
-		Fixed.cpp
+SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 
