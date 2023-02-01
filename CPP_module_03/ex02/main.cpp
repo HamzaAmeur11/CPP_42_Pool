@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 23:44:38 by hameur            #+#    #+#             */
-/*   Updated: 2023/02/01 20:56:32 by hameur           ###   ########.fr       */
+/*   Created: 2023/01/31 02:16:26 by hameur            #+#    #+#             */
+/*   Updated: 2023/02/01 18:35:56 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-# include "ClapTrap.hpp"
+int main(){
+	ScavTrap a("hamza");
+	FragTrap b("sakafkaf");
 
-class ScavTrap : public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(const std::string NewName);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &r);
-		ScavTrap & operator=(const ScavTrap &rhs);
-		void attack(const std::string &target);
-		void guardGate();
-};
+	
+	a.attack("sakafkaf");
+	b.takeDamage(a.GetAttack());
+	b.attack("hamza");
+	a.takeDamage(b.GetAttack());
+	a.attack("sakafkaf");
+	b.takeDamage(a.GetAttack());
+	b.beRepaired(6);
+	a.guardGate();
+	b.highFivesGuys();
+}

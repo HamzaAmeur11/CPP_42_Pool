@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:53:57 by hameur            #+#    #+#             */
-/*   Updated: 2023/01/31 23:21:14 by hameur           ###   ########.fr       */
+/*   Updated: 2023/02/01 16:47:42 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ClapTrap::SetAttack(int Attack){AttackDmg = Attack;}
 void ClapTrap::SetEnergy(int Energy){EnergyPts = Energy;}
 
 void ClapTrap::attack(const std::string &target){
-	if (EnergyPts == 0 || HealthPts == 0){
+	if (EnergyPts == 0 || HealthPts <= 0){
 		std::cout << "ClapeTrap " << Name << " Can't Attack" << std::endl;
 		return ;
 	}
@@ -64,11 +64,11 @@ void ClapTrap::takeDamage(unsigned int amount){
 		HealthPts -= amount;
 	}
 	else
-		std::cout << "ClapTrap " << Name << "Died !\n";
+		std::cout << "ClapTrap " << Name << " Died !\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (EnergyPts == 0 || HealthPts == 0){
+	if (EnergyPts == 0 || HealthPts <= 0){
 		std::cout << "ClapeTrap " << Name << " Can't Repaire" << std::endl;
 		return ;
 	}

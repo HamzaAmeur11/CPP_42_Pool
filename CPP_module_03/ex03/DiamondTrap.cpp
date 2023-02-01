@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 23:44:38 by hameur            #+#    #+#             */
-/*   Updated: 2023/02/01 20:56:32 by hameur           ###   ########.fr       */
+/*   Created: 2023/02/01 18:39:34 by hameur            #+#    #+#             */
+/*   Updated: 2023/02/01 21:29:24 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class DiamondTrap: public ScavTrap , public FragTrap{
+	private:
+		std::string Name;
 	public:
-		ScavTrap();
-		ScavTrap(const std::string NewName);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &r);
-		ScavTrap & operator=(const ScavTrap &rhs);
-		void attack(const std::string &target);
-		void guardGate();
+		DiamondTrap();
+		DiamondTrap(const std::string NewName);
+		DiamondTrap(const DiamondTrap &New);
+		~DiamondTrap();
+		DiamondTrap& operator=(const DiamondTrap &rhs);
 };

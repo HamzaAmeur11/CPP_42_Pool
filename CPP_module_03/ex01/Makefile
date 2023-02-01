@@ -6,16 +6,17 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 23:25:53 by hameur            #+#    #+#              #
-#    Updated: 2023/01/31 23:43:56 by hameur           ###   ########.fr        #
+#    Updated: 2023/02/01 16:54:01 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ScavTrap
 
-
 CC = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+
+HEADERS = ClapTrap.hpp ScavTrap.hpp
 
 SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp
 
@@ -27,7 +28,7 @@ all:	$(NAME)
 $(NAME)	: $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp $(HEADERS)
 	$(CC) $(CPPFLAGS) -c $<
 
 clean:
