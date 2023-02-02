@@ -6,25 +6,28 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 02:16:26 by hameur            #+#    #+#             */
-/*   Updated: 2023/02/01 18:35:56 by hameur           ###   ########.fr       */
+/*   Updated: 2023/02/02 17:32:03 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-# include "FragTrap.hpp"
+# include "DiamondTrap.hpp"
 
 int main(){
-	ScavTrap a("hamza");
-	FragTrap b("sakafkaf");
+	ClapTrap clap("clap");
+	ScavTrap scav("scav");
+	FragTrap Frag("frag");
+	DiamondTrap diamond("DIAMOND");
+
 
 	
-	a.attack("sakafkaf");
-	b.takeDamage(a.GetAttack());
-	b.attack("hamza");
-	a.takeDamage(b.GetAttack());
-	a.attack("sakafkaf");
-	b.takeDamage(a.GetAttack());
-	b.beRepaired(6);
-	a.guardGate();
-	b.highFivesGuys();
+	diamond.attack("clap");
+	clap.takeDamage(diamond.GetAttack());
+	diamond.attack("scav");
+	scav.takeDamage(diamond.GetAttack());
+	diamond.attack("frag");
+	Frag.takeDamage(diamond.GetAttack());
+	diamond.highFivesGuys();
+	diamond.guardGate();
+	diamond.whoAmI();
+
 }

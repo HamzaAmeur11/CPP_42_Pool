@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:45:37 by hameur            #+#    #+#             */
-/*   Updated: 2023/02/01 16:04:29 by hameur           ###   ########.fr       */
+/*   Updated: 2023/02/02 18:44:34 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class ClapTrap{
 		int GetEnergy() const;
 		int GetAttack() const;
 
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

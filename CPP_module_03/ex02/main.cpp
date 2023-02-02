@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 02:16:26 by hameur            #+#    #+#             */
-/*   Updated: 2023/02/01 18:35:56 by hameur           ###   ########.fr       */
+/*   Updated: 2023/02/02 18:46:03 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 # include "FragTrap.hpp"
 
 int main(){
-	ScavTrap a("hamza");
-	FragTrap b("sakafkaf");
-
+	ScavTrap scav("Scav");
+	FragTrap frag("Frag");
+	//virtual function ex
+	ClapTrap clp("aaaa");
+	ClapTrap *clap = &scav;
 	
-	a.attack("sakafkaf");
-	b.takeDamage(a.GetAttack());
-	b.attack("hamza");
-	a.takeDamage(b.GetAttack());
-	a.attack("sakafkaf");
-	b.takeDamage(a.GetAttack());
-	b.beRepaired(6);
-	a.guardGate();
-	b.highFivesGuys();
+	clap->attack("aaaaaaa");
+	scav.attack("Frag");
+	frag.takeDamage(scav.GetAttack());
+	frag.attack("Scav");
+	scav.takeDamage(frag.GetAttack());
+	scav.attack("Frag");
+	frag.takeDamage(scav.GetAttack());
+	frag.beRepaired(6);
+	scav.guardGate();
+	frag.highFivesGuys();
 }
