@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 02:13:47 by hmeur             #+#    #+#             */
-/*   Updated: 2023/02/06 17:21:46 by hameur           ###   ########.fr       */
+/*   Created: 2023/02/06 19:30:17 by hameur            #+#    #+#             */
+/*   Updated: 2023/02/06 19:34:03 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Brain.hpp"
 
-#include <iostream>
-#include <string>
+Brain::Brain(){
+    std::cout << "Brain :Defaullt constructor Called\n";
+}
 
-class WrongAnimal{
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(const std::string &type);
-		WrongAnimal(WrongAnimal const &rhs);
-		virtual ~WrongAnimal();
-		WrongAnimal &operator=(WrongAnimal const &rhs);
-		void SetType(const std::string &str);
-		std::string GetType(void) const;
-		void makeSound() const;
+Brain::Brain(const Brain &ref){
+    *this = ref;
+    std::cout << "Brain :Copy constructor Called\n";
+}
 
-};
+Brain::~Brain(){
+    std::cout << "Brain :Destructor Called\n";
+}
+

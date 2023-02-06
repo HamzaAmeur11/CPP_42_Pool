@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 02:25:41 by hmeur             #+#    #+#             */
-/*   Updated: 2023/02/06 02:28:29 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/02/06 17:20:28 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ WrongCat &WrongCat::operator=(WrongCat const &rhs){
 }
 
 void WrongCat::makeSound() const{
-	std::cout << "WrongCat Hello\n";
+	std::cout << "WrongCat Hello 🐯\n";
 }
 

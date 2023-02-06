@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+         #
+#    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 00:10:41 by hmeur             #+#    #+#              #
-#    Updated: 2023/02/06 02:32:00 by hmeur            ###   ########.fr        #
+#    Updated: 2023/02/06 17:16:07 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 
-all:	$(NAME)
+all:	$(NAME) $(HEADERS)
 	@echo "Meking complete"
 
 $(NAME)	: $(OBJS)
@@ -37,4 +37,4 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean a
+re: fclean all

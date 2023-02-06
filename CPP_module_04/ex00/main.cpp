@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 01:41:39 by hmeur             #+#    #+#             */
-/*   Updated: 2023/02/06 02:37:31 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/02/06 17:22:39 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main()
 	delete i;
 	delete j;
 	delete meta;
-	delete meta2;
 	delete x;
+	delete meta2;
 
 return 0;
 }
