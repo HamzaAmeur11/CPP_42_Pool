@@ -6,7 +6,7 @@
 /*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 00:11:43 by hmeur             #+#    #+#             */
-/*   Updated: 2023/02/07 01:26:55 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/02/07 01:25:18 by hmeur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ class Animal{
 		Animal &operator=(Animal const &rhs);
 		void SetType(const std::string &str);
 		std::string GetType(void) const;
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 
 };
