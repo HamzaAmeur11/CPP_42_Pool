@@ -57,6 +57,11 @@
 		"fstream": "cpp",
 		"stack": "cpp",
 		"__functional_03": "cpp",
-		"cmath": "cpp"
+		"cmath": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"numbers": "cpp"
 	}
 }
