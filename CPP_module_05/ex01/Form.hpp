@@ -12,7 +12,7 @@ class Form{
 		const int ExeIt;
 	public:
 		Form();
-		Form(const std::string &, bool si, const int&, const int&);
+		Form(const std::string &, bool, const int&, const int&);
 		Form(const Form &);
 		~Form();
 		Form &operator=(const Form &);
@@ -20,8 +20,8 @@ class Form{
 		int gitSigneIt();
 		int gitExeIt();
 		bool isSignet();
+		void Signed(bool);
 		void beSigned(const Bureaucrat&);
-		void signForm(const Bureaucrat&);
 
 
 

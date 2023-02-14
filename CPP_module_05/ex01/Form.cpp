@@ -20,7 +20,7 @@ Form::Form(const Form &other):Name(other.Name), SignIt(other.SignIt), ExeIt(othe
 Form::~Form(){ ; }
 
 Form &Form::operator=(const Form &other){
-	si = other.si;
+	Signed(other.si);
 };
 
 const std::string &Form::getName(){
@@ -47,8 +47,12 @@ void Form::beSigned(const Bureaucrat& b){
 	}
 }
 
+void Form::Signed(bool s){
+	this->si = s;
+}
 
-std::ostream& operator<<(std::ostream &os, const Form &f){
+
+std::ostream& operator<<(std::ostream &os, Form &f){
 	os << "Name : " << f.getName() << std::endl;
     os << "Grade require to signed : " << f.gitSigneIt() << std::endl;
     os << "Grade require to execut : " << f.gitExeIt() << std::endl;

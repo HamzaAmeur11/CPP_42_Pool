@@ -92,9 +92,19 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &b){
 
 
 
-void Bureaucrat::signForm(const Form &f){
-	if (this->getGrade() < f.gitSigneIt())
-		std::cout << this->getName() << " Signed " << f.getName() << std::endl;
-	else
-		std::cout << this->getName() << " couldn’t signe " << f.getName() << " Because Rak Tma\n";
+void Bureaucrat::signForm(Form &f){
+	try
+	{
+		if (this->getGrade() < f.gitSigneIt()){
+			std::cout << this->getName() << " Signed " << f.getName() << std::endl;
+			f.Signed(true);
+		}else
+			throw GradeTooLowException();
+	}
+	catch(const std::exception& ex)
+	{
+			std::cerr << this->getName() << " couldn’t signe " << f.getName();
+			std::cerr << " Because \n"<< ex.what() << '\n';
+	}
+
 }
