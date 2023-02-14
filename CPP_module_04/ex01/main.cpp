@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmeur <hmeur@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 00:20:02 by hmeur             #+#    #+#             */
-/*   Updated: 2023/02/07 01:27:22 by hmeur            ###   ########.fr       */
+/*   Updated: 2023/02/07 23:57:38 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 int main ()
 {
 	int i = -1;
-	Animal *animals[12];
-
-	while (++i < 12)
+	Animal *animals[4];
+	while (++i < 4)
 	{
 		if (i & 1)
 			animals[i] = new Dog();
@@ -27,9 +26,10 @@ int main ()
 			animals[i] = new Cat();
 	}
 	i = -1;
-	while (++i < 12)
+	while (++i < 4)
 		animals[i]->makeSound();
 	i = -1;
-	while (++i < 12)
+	while (++i < 4)
 		delete animals[i];
+	while(true);
 }

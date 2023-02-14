@@ -85,14 +85,7 @@ try{
 	}
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &b){
-	out << b.getName() << ", bureaucrat grade" << b.getGrade();
-	return (out);
-}
-
-
-
-void Bureaucrat::signForm(Form &f){
+void Bureaucrat::signForm(AForm &f){
 	try
 	{
 		/*if (){
@@ -101,7 +94,7 @@ void Bureaucrat::signForm(Form &f){
 			std::cout << this->getName() << " Signed " << f.getName() << std::endl;
 			f.Signed(true);
 		}else
-			throw Form::GradeTooLowException();
+			throw AForm::GradeTooLowException();
 	}
 	catch(const std::exception& ex)
 	{
@@ -109,4 +102,9 @@ void Bureaucrat::signForm(Form &f){
 			std::cerr << " Because "<< ex.what() << '\n';
 	}
 
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b){
+	out << b.getName() << ", bureaucrat grade" << b.getGrade();
+	return (out);
 }

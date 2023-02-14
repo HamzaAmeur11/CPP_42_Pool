@@ -1,8 +1,8 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form():Name("FormName"), SignIt(15), ExeIt(1){ this->si = false; }
+AForm::AForm():Name("FormName"), SignIt(15), ExeIt(1){ this->si = false; }
 
-Form::Form(const std::string &s, bool si, const int&signit, const int&exeit) :Name(s), si(si), SignIt(signit), ExeIt(exeit){
+AForm::AForm(const std::string &s, bool si, const int&signit, const int&exeit) :Name(s), si(si), SignIt(signit), ExeIt(exeit){
 	try{
 		if (SignIt >  150 || ExeIt > 150)
 			throw GradeTooLowException();
@@ -13,31 +13,31 @@ Form::Form(const std::string &s, bool si, const int&signit, const int&exeit) :Na
 	}
 }
 
-Form::Form(const Form &other):Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt){
+AForm::AForm(const AForm &other):Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt){
 	*this = other;;
 }
 
-Form::~Form(){ ; }
+AForm::~AForm(){ ; }
 
-Form &Form::operator=(const Form &other){
+AForm &AForm::operator=(const AForm &other){
 	Signed(other.si);
 	return *this;
 };
 
-const std::string &Form::getName(){
+const std::string &AForm::getName(){
 	return this->Name;
 }
 
-int Form::gitSigneIt(){
+int AForm::gitSigneIt(){
 	return this->SignIt;
 }
-int Form::gitExeIt(){
+int AForm::gitExeIt(){
 	return this->ExeIt;
 }
-bool Form::isSignet(){
+bool AForm::isSignet(){
 	return this->si;
 }
-void Form::beSigned(Bureaucrat& b){
+void AForm::beSigned(Bureaucrat& b){
 	try{
 		if (b.getGrade() > SignIt)
 			throw GradeTooLowException();
@@ -49,12 +49,12 @@ void Form::beSigned(Bureaucrat& b){
 	}
 }
 
-void Form::Signed(bool s){
+void AForm::Signed(bool s){
 	this->si = s;
 }
 
 
-std::ostream& operator<<(std::ostream &os, Form &f){
+std::ostream& operator<<(std::ostream &os, AForm &f){
 	os << "Name : " << f.getName() << std::endl;
     os << "Grade require to signed : " << f.gitSigneIt() << std::endl;
     os << "Grade require to execut : " << f.gitExeIt() << std::endl;

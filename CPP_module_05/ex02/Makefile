@@ -1,12 +1,21 @@
-NAME = exec01
+NAME = exec02
 
 CC = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-HEADERS = Bureaucrat.hpp Form.hpp
+HEADERS = Bureaucrat.hpp \
+			AForm.hpp \
+			PresidentialPardonForm.hpp \
+			ShrubberyCreationForm.hpp \
+			RobotomyRequestForm.hpp
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp \
+		Bureaucrat.cpp \
+		AForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 

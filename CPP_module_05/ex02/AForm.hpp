@@ -6,18 +6,18 @@
 
 class Bureaucrat;
 
-class Form{
+class AForm{
 	private:
 		const std::string Name;
 		bool si;
 		const int SignIt;
 		const int ExeIt;
 	public:
-		Form();
-		Form(const std::string &, bool, const int&, const int&);
-		Form(const Form &);
-		~Form();
-		Form &operator=(const Form &);
+		AForm();
+		AForm(const std::string &, bool, const int&, const int&);
+		AForm(const AForm &);
+		~AForm();
+		AForm &operator=(const AForm &);
 		const std::string &getName();
 		int gitSigneIt();
 		int gitExeIt();
@@ -44,4 +44,4 @@ class Form{
 		};
 };
 
-std::ostream& operator<<(std::ostream &, const Form &);
+std::ostream& operator<<(std::ostream &, const AForm &);

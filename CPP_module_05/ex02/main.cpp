@@ -1,14 +1,14 @@
 
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main () {
 
 	Bureaucrat B = Bureaucrat("Buro", 1); 
 	Bureaucrat C;//(bureaucrat, 150)
-	Form f1("chahadat Sokna", false, 75, 1);
-	Form f2;//(form, false, 15, 1)
+	AForm f1("chahadat Sokna", false, 75, 1);
+	AForm f2;//(form, false, 15, 1)
 
 	f1.beSigned(B);
 	std::cout <<"----------\n";
