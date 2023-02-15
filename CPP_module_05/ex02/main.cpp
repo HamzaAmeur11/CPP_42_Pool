@@ -18,33 +18,27 @@
 
 // 	B.signForm(f1);
 // 	f1.execute(B);
-	
+
 
 // 	C.signForm(f2);
 // 	f2.execute(C);
-	
+
 
 
 // }
 
 int main()
 {
-  try
-  {
-    Bureaucrat b("bur", 2);
-    Bureaucrat b1("buraa", 0);
-    ShrubberyCreationForm s = ShrubberyCreationForm("sh");
-	s.beSigned(b1);
-	std::cout << b1.getGrade() <<" aaaaaaaa \n";
-    s.execute(b1);
-    PresidentialPardonForm p = PresidentialPardonForm("presedent");
-    p.beSigned(b);
-    p.execute(b);
-    b.executeForm(s);
-    std::cout << "---------------------- \n";
-  }
-  catch (const std::exception &e)
-  {
-    std::cout << e.what() << '\n';
-  }
+	Bureaucrat a("m9adem", 150);
+    Bureaucrat c("wakil", 32);
+    Bureaucrat q("King", 10);
+    ShrubberyCreationForm b("home");
+    b.beSigned(a);
+    b.execute(a);
+    RobotomyRequestForm d("robot");
+    d.beSigned(c);
+    d.execute(c);
+    PresidentialPardonForm s("wiwiw");
+    s.beSigned(q);
+    s.execute(q);
 }
