@@ -31,20 +31,20 @@ AForm &AForm::operator=(const AForm &other)
 	return *this;
 };
 
-const std::string &AForm::getName()
+const std::string &AForm::getName() const
 {
 	return this->Name;
 }
 
-int AForm::getSigneIt()
+int AForm::getSigneIt() const
 {
 	return this->SignIt;
 }
-int AForm::getExeIt()
+int AForm::getExeIt() const
 {
 	return this->ExeIt;
 }
-bool AForm::isSignet()
+bool AForm::isSignet() const
 {
 	return this->si;
 }

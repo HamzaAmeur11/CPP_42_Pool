@@ -4,7 +4,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): AForm("FormName", false, 145, 13
 	this->target = "Target";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other): AForm(AForm::getName(), false, 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other): AForm(other.getName(), false, 145, 137){
 	*this = other;
 }
 

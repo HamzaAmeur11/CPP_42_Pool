@@ -20,10 +20,11 @@ public:
 	AForm(const AForm &);
 	virtual ~AForm();
 	AForm &operator=(const AForm &);
-	const std::string &getName();
-	int getSigneIt();
-	int getExeIt();
-	bool isSignet();
+	
+	const std::string &getName()const;
+	int getSigneIt() const;
+	int getExeIt() const;
+	bool isSignet()const;
 	void Signed(bool);
 	void beSigned(Bureaucrat &);
 
