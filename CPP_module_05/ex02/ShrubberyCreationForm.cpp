@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("FormName", false, 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", false, 145, 137){
 	this->target = "Target";
 }
 
@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
 	*this = other;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("FormName", false, 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("ShrubberyCreationForm", false, 145, 137){
 	this->target = target;
 }
 
@@ -26,7 +26,7 @@ std::string const &ShrubberyCreationForm::getTarget(){
 
 void ShrubberyCreationForm::execute(Bureaucrat const &bur) const{
 	bur.executeForm(*this);
-	if (bur.getGrade() <= this->getExeIt() && this->isSignet()){
+	if (bur.getGrade() > 0 && bur.getGrade() <= this->getExeIt() && this->isSignet()){
 		std::string fileName = target + "_Shrubbery";
 		std::ofstream outfile(fileName);
 		outfile <<

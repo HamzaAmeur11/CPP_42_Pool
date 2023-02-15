@@ -55,10 +55,7 @@ void AForm::beSigned(Bureaucrat &b)
 		if (b.getGrade() > SignIt)
 			throw GradeTooLowException();
 		else
-		{
 			si = true;
-			std::cout << "valide\n";
-		}
 	}
 	catch (const std::exception &ex)
 	{
