@@ -1,66 +1,85 @@
 #include "AForm.hpp"
 
-AForm::AForm():Name("FormName"), SignIt(15), ExeIt(1){ this->si = false; }
+AForm::AForm() : Name("FormName"), SignIt(15), ExeIt(1) { this->si = false; }
 
-AForm::AForm(const std::string &s, bool si, const int&signit, const int&exeit) :Name(s), si(si), SignIt(signit), ExeIt(exeit){
-	try{
-		if (SignIt >  150 || ExeIt > 150)
+AForm::AForm(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit)
+{
+	try
+	{
+		if (SignIt > 150 || ExeIt > 150)
 			throw GradeTooLowException();
 		else if (SignIt < 1 || ExeIt < 1)
 			throw GradeTooHighException();
-	}catch(const std::exception &ex){
+	}
+	catch (const std::exception &ex)
+	{
 		std::cerr << ex.what() << "\n";
 	}
 }
 
-AForm::AForm(const AForm &other):Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt){
-	*this = other;;
+AForm::AForm(const AForm &other) : Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt)
+{
+	*this = other;
+	;
 }
 
-AForm::~AForm(){ ; }
+AForm::~AForm() { ; }
 
-AForm &AForm::operator=(const AForm &other){
+AForm &AForm::operator=(const AForm &other)
+{
 	Signed(other.si);
 	return *this;
 };
 
-const std::string &AForm::getName(){
+const std::string &AForm::getName()
+{
 	return this->Name;
 }
 
-int AForm::gitSigneIt(){
+int AForm::getSigneIt()
+{
 	return this->SignIt;
 }
-int AForm::gitExeIt(){
+int AForm::getExeIt()
+{
 	return this->ExeIt;
 }
-bool AForm::isSignet(){
+bool AForm::isSignet()
+{
 	return this->si;
 }
-void AForm::beSigned(Bureaucrat& b){
-	try{
+void AForm::beSigned(Bureaucrat &b)
+{
+	try
+	{
 		if (b.getGrade() > SignIt)
 			throw GradeTooLowException();
-		else{
+		else
+		{
 			si = true;
 			std::cout << "valide\n";
-	}}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;;
+		}
+	}
+	catch (const std::exception &ex)
+	{
+		std::cerr << ex.what() << std::endl;
+		;
 	}
 }
 
-void AForm::Signed(bool s){
+void AForm::Signed(bool s)
+{
 	this->si = s;
 }
 
-
-std::ostream& operator<<(std::ostream &os, AForm &f){
+std::ostream &operator<<(std::ostream &os, AForm &f)
+{
 	os << "Name : " << f.getName() << std::endl;
-    os << "Grade require to signed : " << f.gitSigneIt() << std::endl;
-    os << "Grade require to execut : " << f.gitExeIt() << std::endl;
+	os << "Grade require to signed : " << f.getSigneIt() << std::endl;
+	os << "Grade require to execut : " << f.getExeIt() << std::endl;
 	if (f.isSignet() == false)
-    	os << "Status: not signed" << std::endl;
+		os << "Status: not signed" << std::endl;
 	else
 		os << "Status: Signed\n";
-    return os;
+	return os;
 }
