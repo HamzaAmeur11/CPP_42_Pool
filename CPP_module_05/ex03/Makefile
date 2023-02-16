@@ -10,14 +10,16 @@ HEADERS = Bureaucrat.hpp \
 			AForm.hpp \
 			PresidentialPardonForm.hpp \
 			ShrubberyCreationForm.hpp \
-			RobotomyRequestForm.hpp
+			RobotomyRequestForm.hpp \
+			Intern.hpp
 
 SRC = main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp \
+		Intern.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 

@@ -142,18 +142,17 @@ void Bureaucrat::executeForm(AForm const &form) const
 {
 	try{
 		if (this->getGrade() > form.getExeIt())
-			throw GradeTooLowException();
+			throw AForm::GradeTooLowException();
 		else if (!form.isSignet())
 			throw AForm::NotSignedException();
 		else if (this->getGrade() < 1)
-			throw GradeTooHighException();
+			throw AForm::GradeTooHighException();
 		else
 			std::cout << this->getName() << " Executed " << form.getName() << '\n';
 
 	}catch(std::exception &ex){
 		std::cerr << this->getName() << " couldn't executed ";
-		std::cerr << form.getName() << '\n';
-		std::cerr << " because :" << ex.what() << "\n";
+		std::cerr << form.getName() <<  " because :" << ex.what() << "\n";
 	}
 }
 

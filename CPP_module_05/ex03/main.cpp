@@ -1,10 +1,6 @@
 
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <stdlib.h>
 
 // int main () {
@@ -32,13 +28,28 @@ int main()
 	Bureaucrat a("m9adem", 150);
     Bureaucrat c("wakil", 32);
     Bureaucrat q("King", 5);
-    ShrubberyCreationForm b("home");
-    b.beSigned(a);
-    b.execute(a);
-    RobotomyRequestForm d("robot");
-    d.beSigned(c);
-    d.execute(c);
-    PresidentialPardonForm s("wiwiw");
-    s.beSigned(q);
-    s.execute(q);
+    Intern In;
+    AForm *form1 = In.makeForm("ShrubberyCreationForm", "shhh");
+    AForm *form2 = In.makeForm("RobotomyRequestForm", "robot");
+    AForm *form3 = In.makeForm("PresidentialPardonForm", "wiwi");
+    AForm *form4 = In.makeForm("", "");
+
+	form1->beSigned(a);
+    form1->execute(a);
+    form2->beSigned(c); 
+    form2->execute(c); 
+    form3->beSigned(q); 
+    form3->execute(q);
+	try{
+		if (form4 == nullptr)
+			throw (Intern::WrongForm());
+    	form4->beSigned(a);
+    	form4->execute(a);
+		delete form4;
+    }catch(std::exception &ex){
+		std::cerr << ex.what() << "\n";
+	}
+	delete form1;
+	delete form2;
+	delete form3;
 }

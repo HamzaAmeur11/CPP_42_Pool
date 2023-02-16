@@ -29,9 +29,11 @@
 
 int main()
 {
-	Bureaucrat a("m9adem", 150);
+    srand(time(NULL));
+
+    Bureaucrat a("m9adem", 150);
     Bureaucrat c("wakil", 32);
-    Bureaucrat q("King", 5);
+    Bureaucrat q("King", 4);
     ShrubberyCreationForm b("home");
     b.beSigned(a);
     b.execute(a);

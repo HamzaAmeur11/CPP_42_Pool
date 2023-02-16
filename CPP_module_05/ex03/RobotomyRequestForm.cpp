@@ -29,7 +29,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &bur) const{
     srand(time(NULL));
 	if (bur.getGrade() <= this->getExeIt() && this->isSignet()){
         int iRand = rand() % 10;
-        std::cout << iRand << "\n";
+        // std::cout << iRand << "\n";
         if (iRand % 2 == 1)
             std::cout << bur.getName() << " : Robotomized " << this->target << " OK!!!\n";
         else

@@ -1,0 +1,23 @@
+#pragma once
+
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+class Intern{
+    public:
+        Intern();
+        Intern(const Intern &);
+        ~Intern();
+        Intern &operator=(const Intern &);
+        AForm *makeForm(const std::string&, const std::string&);
+        class WrongForm : public std::exception{
+            public:
+                WrongForm(){;};
+                const char *what()const throw(){
+                    return "Wrong Form";
+                }
+        };
+};
