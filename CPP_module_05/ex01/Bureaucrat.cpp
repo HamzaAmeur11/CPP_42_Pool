@@ -6,12 +6,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &ref) : Name(ref.getName())
 {
 	try
 	{
-		if (ref.getGrade() <= 0)
+		if (ref.getGrade() < 1)
 		{
 			throw GradeTooHighException();
-			setGrade(1);
+			setGrade(150);
 		}
-		else if (ref.getGrade() > 151)
+		else if (ref.getGrade() > 150)
 		{
 			throw GradeTooLowException();
 			setGrade(150);

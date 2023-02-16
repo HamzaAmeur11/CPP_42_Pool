@@ -34,7 +34,7 @@ int main()
     AForm *form3 = In.makeForm("PresidentialPardonForm", "wiwi");
     AForm *form4 = In.makeForm("", "");
 
-	form1->beSigned(a);
+	  form1->beSigned(a);
     form1->execute(a);
     form2->beSigned(c); 
     form2->execute(c); 
@@ -45,9 +45,9 @@ int main()
 			throw (Intern::WrongForm());
     	form4->beSigned(a);
     	form4->execute(a);
-		delete form4;
+		  delete form4;
     }catch(std::exception &ex){
-		std::cerr << ex.what() << "\n";
+		std::cerr << "form : "<< ex.what() << "\n";
 	}
 	delete form1;
 	delete form2;
