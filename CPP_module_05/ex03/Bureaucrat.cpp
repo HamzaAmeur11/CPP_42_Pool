@@ -7,9 +7,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &ref) : Name(ref.getName())
 	try
 	{
 		if (ref.getGrade() <= 0)
+		{
 			throw GradeTooHighException();
+			setGrade(1);
+		}
 		else if (ref.getGrade() > 151)
-		{//na999iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+		{
 			throw GradeTooLowException();
 			setGrade(150);
 		}
@@ -148,12 +151,13 @@ void Bureaucrat::executeForm(AForm const &form) const
 		else if (this->getGrade() < 1)
 			throw GradeTooHighException();
 		else
-			std::cout << this->getName() << " Executed " << form.getName() << '\n';
+			std::cout << this->getName() << " Execute " << form.getName() << '\n';
 
 	}catch(std::exception &ex){
-		std::cerr << this->getName() << " couldn't executed ";
+		std::cerr << this->getName() << " couldn't execute ";
 		std::cerr << form.getName() << '\n';
 		std::cerr << " because :" << ex.what() << "\n";
+
 	}
 }
 
