@@ -4,10 +4,17 @@
 
 int main () {
 
-	Bureaucrat B = Bureaucrat("Buro", 1);
-	Bureaucrat C;
+	try{
+		Bureaucrat B = Bureaucrat("Buro", 1);
+		Bureaucrat C;//("Bureaucrat", 150)
+		C.increment();
+		// B.increment(); //throw ex
+		std::cout << "Buro C : grade = "<< C.getGrade() << '\n';
 
-	B = C;
-
-	B.increment();
+		C = B;
+		C.decrement();
+		std::cout << "Buro C : grade = " << C.getGrade() << '\n';
+	}catch(const std::exception &ex){
+		std::cerr << ex.what() << '\n';
+	}
 }

@@ -48,4 +48,4 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &, const Form &);
+std::ostream &operator<<(std::ostream &, Form &);

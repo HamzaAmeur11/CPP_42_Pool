@@ -3,51 +3,52 @@
 Bureaucrat::Bureaucrat() : Name("Bureaucrat"), Grade(150){ ; }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &ref): Name(ref.getName()){
-	try{
+	// try{
 		if (ref.getGrade() < 1){
+			throw ("aaaaaaa");
 			throw GradeTooHighException();
-			setGrade(150);
+			// setGrade(150);
 		} else if (ref.getGrade() > 150){
 			throw GradeTooLowException();
-			setGrade(150);
+			// setGrade(150);
 		} else
 			setGrade(ref.getGrade());
-	}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;
-	}
+	// }catch(const std::exception &ex){
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): Name(name){
-	try{
+	// try{
 		if (grade <= 0){
 			throw GradeTooHighException();
-			setGrade(1);
+			// setGrade(1);
 		} else if (grade > 151){
 			throw GradeTooLowException();
-			setGrade(150);
+			// setGrade(150);
 		} else
 			setGrade(grade);
-	}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;
-	}
+	// }catch(const std::exception &ex){
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 Bureaucrat::~Bureaucrat(){ ; }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const &other){
 
-	try{
-		if (other.getGrade() <= 0){
+	// try{
+		if (other.getGrade() < 1){
 			throw GradeTooHighException();
-			setGrade(1);
-		} else if (other.getGrade() > 151){
+			// setGrade(1);
+		} else if (other.getGrade() > 150){
 			throw GradeTooLowException();
-			setGrade(150);
+			// setGrade(150);
 		} else
 			this->Grade = other.Grade;
-	}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;
-	}
+	// }catch(const std::exception &ex){
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 	return *this;
 }
 
@@ -64,25 +65,25 @@ void	Bureaucrat::setGrade(int const &g){
 }
 
 void	Bureaucrat::increment(){
-	try{
-		if (Grade == 1)
+	// try{
+		if (Grade == 1){
 			throw GradeTooHighException();
-		else
+		}else
 			Grade--;
-	}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;
-	}
+	// }catch(const std::exception &ex){
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 void	Bureaucrat::decrement(){
-try{
+	// try{
 		if (Grade == 150)
 			throw GradeTooLowException();
 		else
 			Grade++;
-	}catch(const std::exception &ex){
-		std::cerr << ex.what() << std::endl;
-	}
+	// }catch(const std::exception &ex){
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 

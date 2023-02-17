@@ -4,48 +4,48 @@ Bureaucrat::Bureaucrat() : Name("Bureaucrat"), Grade(150) { ; }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &ref) : Name(ref.getName())
 {
-	try
-	{
-		if (ref.getGrade() <= 0)
+	// try
+	// {
+		if (ref.getGrade() < 1)
 		{
 			throw GradeTooHighException();
-			setGrade(1);
+			// setGrade(1);
 		}
-		else if (ref.getGrade() > 151)
+		else if (ref.getGrade() > 150)
 		{
 			throw GradeTooLowException();
-			setGrade(150);
+			// setGrade(150);
 		}
 		else
 			setGrade(ref.getGrade());
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
+	// }
+	// catch (const std::exception &ex)
+	// {
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name)
 {
-	try
-	{
-		if (grade <= 0)
+	// try
+	// {
+		if (grade < 1)
 		{
 			throw GradeTooHighException();
-			setGrade(1);
+			// setGrade(1);
 		}
-		else if (grade > 151)
+		else if (grade > 150)
 		{
 			throw GradeTooLowException();
-			setGrade(150);
+			// setGrade(150);
 		}
 		else
 			setGrade(grade);
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
+	// }
+	// catch (const std::exception &ex)
+	// {
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 }
 
 Bureaucrat::~Bureaucrat() { ; }
@@ -53,25 +53,25 @@ Bureaucrat::~Bureaucrat() { ; }
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 {
 
-	try
-	{
-		if (other.getGrade() <= 0)
+	// try
+	// {
+		if (other.getGrade() < 1)
 		{
 			throw GradeTooHighException();
 			setGrade(1);
 		}
-		else if (other.getGrade() > 151)
+		else if (other.getGrade() > 150)
 		{
 			throw GradeTooLowException();
 			setGrade(150);
 		}
 		else
 			this->Grade = other.Grade;
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
+	// }
+	// catch (const std::exception &ex)
+	// {
+	// 	std::cerr << ex.what() << std::endl;
+	// }
 	return *this;
 }
 

@@ -31,7 +31,6 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		GradeTooHighException() { ; };
 		const char *what() const throw()
 		{
 			return "Form :Grade To High";
@@ -41,7 +40,6 @@ public:
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		GradeTooLowException() { ; };
 		const char *what() const throw()
 		{
 			return "Form :Grade To Low";

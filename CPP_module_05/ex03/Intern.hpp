@@ -18,7 +18,6 @@ class Intern{
         int checkForm(const std::string &);
         class WrongForm : public std::exception{
             public:
-                WrongForm(){;};
                 const char *what()const throw(){
                     return "Wrong Form";
                 }

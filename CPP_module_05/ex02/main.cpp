@@ -31,16 +31,20 @@ int main()
 {
     srand(time(NULL));
 
-    Bureaucrat a("m9adem", 150);
-    Bureaucrat c("wakil", 32);
-    Bureaucrat q("King", 4);
-    ShrubberyCreationForm b("home");
-    b.beSigned(a);
-    b.execute(a);
-    RobotomyRequestForm d("robot");
-    d.beSigned(c);
-    d.execute(c);
-    PresidentialPardonForm s("wiwiw");
-    s.beSigned(q);
-    s.execute(q);
+    try{
+        Bureaucrat a("m9adem", 150);
+        Bureaucrat c("wakil", 32);
+        Bureaucrat q("King", 4);
+        ShrubberyCreationForm b("home");
+        b.beSigned(q);
+        b.execute(q);
+        RobotomyRequestForm d("robot");
+        d.beSigned(c);
+        d.execute(c);
+        PresidentialPardonForm s("wiwiw");
+        s.beSigned(a);
+        s.execute(a);
+    }catch(const std::exception &ex){
+        std::cerr << ex.what();
+    }
 }

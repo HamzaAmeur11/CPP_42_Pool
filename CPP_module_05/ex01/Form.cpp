@@ -1,26 +1,25 @@
 #include "Form.hpp"
 
-Form::Form() : Name("FormName"), SignIt(15), ExeIt(1) { this->si = false; }
+Form::Form() : Name("FormName"), SignIt(1), ExeIt(1) { this->si = false; }
 
 Form::Form(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit)
 {
-	try
-	{
+	// try
+	// {
 		if (SignIt > 150 || ExeIt > 150)
 			throw GradeTooLowException();
 		else if (SignIt < 1 || ExeIt < 1)
 			throw GradeTooHighException();
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << "\n";
-	}
+	// }
+	// catch (const std::exception &ex)
+	// {
+	// 	std::cerr << ex.what() << "\n";
+	// }
 }
 
 Form::Form(const Form &other) : Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt)
 {
 	*this = other;
-	;
 }
 
 Form::~Form() { ; }
@@ -50,18 +49,17 @@ bool Form::isSignet()
 }
 void Form::beSigned(Bureaucrat &b)
 {
-	try
-	{
-		if (b.getGrade() > SignIt)
-			throw GradeTooLowException();
-		else
+	// try
+	// {
+		if (b.getGrade() <= SignIt)
 			si = true;
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-		;
-	}
+		else
+			throw GradeTooLowException();
+	// }
+	// catch (const std::exception &ex)
+	// {
+	// 	std::cerr << ex.what() << std::endl;;
+	// }
 }
 
 void Form::Signed(bool s)
@@ -71,12 +69,12 @@ void Form::Signed(bool s)
 
 std::ostream &operator<<(std::ostream &os, Form &f)
 {
-	os << "Name : " << f.getName() << std::endl;
+	os << "Name                    : " << f.getName() << std::endl;
 	os << "Grade require to signed : " << f.getSigneIt() << std::endl;
 	os << "Grade require to execut : " << f.getExeIt() << std::endl;
 	if (f.isSignet() == false)
-		os << "Status: not signed" << std::endl;
+		os << "Status                  : not signed" << std::endl;
 	else
-		os << "Status: Signed\n";
+		os << "Status                  : Signed\n";
 	return os;
 }

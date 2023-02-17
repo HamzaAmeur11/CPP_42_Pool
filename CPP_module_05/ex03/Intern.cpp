@@ -20,19 +20,22 @@ Intern &Intern::operator=(const Intern &other){
     return *this;
 }
 
-int Intern::checkForm(const std::string &name){
+int Intern::checkForm(const std::string &name)
+{
+    if (name != tab[0] && name != tab[1] && name != tab[2])
+        throw WrongForm();
     if (name == tab[0])
         return 0;
     else if (name == tab[1])
         return 1;
     else if (name == tab[2])
-        return 2;    
-    return-1;
+        return 2;
+    return 4;
 }
 
 AForm *Intern::makeForm(const std::string &name, const std::string &target){
-    AForm *form = nullptr;;
-     try{
+    AForm *form = NULL;
+    //  try{
         int i = checkForm(name);
         switch (i)
         {
@@ -46,11 +49,10 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target){
             form = new PresidentialPardonForm(target);
             break;
         default:
-            throw WrongForm();
             break;
         }
-    }catch(const std::exception &ex){
-           std::cerr << "Cloudn't Creat a form Because : " << ex.what() << "\n";
-    }
+    // }catch(const std::exception &ex){
+    //        std::cerr << "Cloudn't Creat a form Because : " << ex.what() << "\n";
+    // }
     return (form);
 }

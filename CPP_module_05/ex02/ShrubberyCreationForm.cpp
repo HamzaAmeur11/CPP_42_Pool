@@ -27,8 +27,7 @@ std::string const &ShrubberyCreationForm::getTarget(){
 void ShrubberyCreationForm::execute(Bureaucrat const &bur) const{
 	bur.executeForm(*this);
 	if (bur.getGrade() > 0 && bur.getGrade() <= this->getExeIt() && this->isSignet()){
-		std::string fileName = target + "_Shrubbery";
-		std::ofstream outfile(fileName);
+		std::ofstream outfile(target + "_Shrubbery");
 		outfile <<
 		"                                    .\n"
 		"                                      .         ;\n"
