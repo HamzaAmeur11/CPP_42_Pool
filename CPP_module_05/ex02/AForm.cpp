@@ -2,19 +2,11 @@
 
 AForm::AForm() : Name("FormName"), SignIt(1), ExeIt(1) { this->si = false; }
 
-AForm::AForm(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit)
-{
-	// try
-	// {
-		if (SignIt > 150 || ExeIt > 150)
-			throw GradeTooLowException();
-		else if (SignIt < 1 || ExeIt < 1)
-			throw GradeTooHighException();
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << "\n";
-	// }
+AForm::AForm(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit){
+	if (SignIt > 150 || ExeIt > 150)
+		throw GradeTooLowException();
+	else if (SignIt < 1 || ExeIt < 1)
+		throw GradeTooHighException();
 }
 
 AForm::AForm(const AForm &other) : Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt)
@@ -47,20 +39,11 @@ bool AForm::isSignet() const
 {
 	return this->si;
 }
-void AForm::beSigned(Bureaucrat &b)
-{
-	// try
-	// {
+void AForm::beSigned(Bureaucrat &b){
 		if (b.getGrade() > SignIt)
 			throw GradeTooLowException();
 		else
 			si = true;
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << std::endl;
-	// 	;
-	// }
 }
 
 void AForm::Signed(bool s)

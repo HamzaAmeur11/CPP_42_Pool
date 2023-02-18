@@ -13,26 +13,20 @@ int main () {
 
 		// B.increment();//throw ex
 		std::cout << B << "\n\n";
-		std::cout << f1 << '\n';
+		std::cout << f1 ;
 		std::cout << C << "\n\n";
-		std::cout << f2 << '\n';
+		std::cout << f2 ;
 
-		std::cout <<"----------\n";
 		f1.beSigned(B);
-		std::cout <<"----------\n";
 		B.signForm(f1);
-		std::cout <<"----------\n";
 		// f1.beSigned(C); // throw ex
-		std::cout <<"----------\n";
 		// C.signForm(f1);// throw ex
-		std::cout <<"----------\n";
 
 		f2.beSigned(B);
-		std::cout <<"----------\n";
 		B.signForm(f2);
-		std::cout <<"----------\n";
+		std::cout << f1 ;
+		std::cout << f2 ;
 		// f2.beSigned(C); // throw ex
-		std::cout <<"----------\n";
 		// C.signForm(f2); // throw ex
 
 	}catch(const std::exception &ex){
@@ -51,22 +45,14 @@ int main () {
 		std::cout << C << "\n\n";
 		std::cout << f2 << '\n';
 
-		std::cout <<"----------\n";
 		f1.beSigned(B);
-		std::cout <<"----------\n";
 		B.signForm(f1);
-		std::cout <<"----------\n";
 		f1.beSigned(C); // throw ex
-		std::cout <<"----------\n";
 		// C.signForm(f1);// throw ex
-		std::cout <<"----------\n";
 
 		f2.beSigned(B);
-		std::cout <<"----------\n";
 		B.signForm(f2);
-		std::cout <<"----------\n";
 		// f2.beSigned(C); // throw ex
-		std::cout <<"----------\n";
 		// C.signForm(f2); // throw ex
 
 	}catch(const std::exception &ex){

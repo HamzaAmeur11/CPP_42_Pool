@@ -2,76 +2,34 @@
 
 Bureaucrat::Bureaucrat() : Name("Bureaucrat"), Grade(150) { ; }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &ref) : Name(ref.getName())
-{
-	// try
-	// {
-		if (ref.getGrade() < 1)
-		{
+Bureaucrat::Bureaucrat(const Bureaucrat &ref) : Name(ref.getName()){
+		if (ref.getGrade() < 1){
 			throw GradeTooHighException();
-			// setGrade(1);
-		}
-		else if (ref.getGrade() > 150)
-		{
+		}else if (ref.getGrade() > 150){
 			throw GradeTooLowException();
-			// setGrade(150);
-		}
-		else
+		}else
 			setGrade(ref.getGrade());
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << std::endl;
-	// }
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name)
-{
-	// try
-	// {
-		if (grade < 1)
-		{
-			throw GradeTooHighException();
-			// setGrade(1);
-		}
-		else if (grade > 150)
-		{
-			throw GradeTooLowException();
-			// setGrade(150);
-		}
-		else
-			setGrade(grade);
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << std::endl;
-	// }
+Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name){
+	if (grade < 1){
+		throw GradeTooHighException();
+	}else if (grade > 150){
+		throw GradeTooLowException();
+	}else
+		setGrade(grade);
 }
 
 Bureaucrat::~Bureaucrat() { ; }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 {
-
-	// try
-	// {
-		if (other.getGrade() < 1)
-		{
-			throw GradeTooHighException();
-			setGrade(1);
-		}
-		else if (other.getGrade() > 150)
-		{
-			throw GradeTooLowException();
-			setGrade(150);
-		}
-		else
-			this->Grade = other.Grade;
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << std::endl;
-	// }
+	if (other.getGrade() < 1){
+		throw GradeTooHighException();
+	}else if (other.getGrade() > 150){
+		throw GradeTooLowException();
+	}else
+		this->Grade = other.Grade;
 	return *this;
 }
 
@@ -92,72 +50,43 @@ void Bureaucrat::setGrade(int const &g)
 
 void Bureaucrat::increment()
 {
-	try
-	{
-		if (Grade == 1)
-			throw GradeTooHighException();
-		else
-			Grade--;
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
+	if (Grade == 1)
+		throw GradeTooHighException();
+	else
+		Grade--;
 }
 
 void Bureaucrat::decrement()
 {
-	try
-	{
-		if (Grade == 150)
-			throw GradeTooLowException();
-		else
-			Grade++;
-	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << ex.what() << std::endl;
-	}
+	if (Grade == 150)
+		throw GradeTooLowException();
+	else
+		Grade++;
 }
 
 void Bureaucrat::signForm(AForm &f)
 {
-	try
+	if (this->getGrade() < 1){
+		throw AForm::GradeTooHighException();
+	}else if (this->getGrade() < f.getSigneIt())
 	{
-		if (this->getGrade() < 1){
-			throw AForm::GradeTooHighException();
-		}else if (this->getGrade() < f.getSigneIt())
-		{
-			std::cout << this->getName() << " Signed " << f.getName() << std::endl;
-			f.Signed(true);
-		}
-		else
-			throw AForm::GradeTooLowException();
+		std::cout << this->getName() << " Signed " << f.getName() << std::endl;
+		f.Signed(true);
 	}
-	catch (const std::exception &ex)
-	{
-		std::cerr << this->getName() << " couldn’t signe " << f.getName();
-		std::cerr << " Because " << ex.what() << '\n';
-	}
+	else
+		throw AForm::GradeTooLowException();
 }
 
 void Bureaucrat::executeForm(AForm const &form) const
 {
-	try{
-		if (this->getGrade() > form.getExeIt())
-			throw GradeTooLowException();
-		else if (!form.isSignet())
-			throw AForm::NotSignedException();
-		else if (this->getGrade() < 1)
-			throw GradeTooHighException();
-		else
-			std::cout << this->getName() << " Execute " << form.getName() << '\n';
-
-	}catch(std::exception &ex){
-		std::cerr << this->getName() << " couldn't execute ";
-		std::cerr << form.getName() <<  " because :" << ex.what() << "\n";
-
-	}
+	if (this->getGrade() > form.getExeIt())
+		throw GradeTooLowException();
+	else if (!form.isSignet())
+		throw AForm::NotSignedException();
+	else if (this->getGrade() < 1)
+		throw GradeTooHighException();
+	else
+		std::cout << this->getName() << " Execute " << form.getName() << '\n';
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)

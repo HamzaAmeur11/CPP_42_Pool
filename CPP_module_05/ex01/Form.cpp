@@ -2,19 +2,11 @@
 
 Form::Form() : Name("FormName"), SignIt(1), ExeIt(1) { this->si = false; }
 
-Form::Form(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit)
-{
-	// try
-	// {
-		if (SignIt > 150 || ExeIt > 150)
-			throw GradeTooLowException();
-		else if (SignIt < 1 || ExeIt < 1)
-			throw GradeTooHighException();
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << "\n";
-	// }
+Form::Form(const std::string &s, bool si, const int &signit, const int &exeit) : Name(s), si(si), SignIt(signit), ExeIt(exeit){
+	if (SignIt > 150 || ExeIt > 150)
+		throw GradeTooLowException();
+	else if (SignIt < 1 || ExeIt < 1)
+		throw GradeTooHighException();
 }
 
 Form::Form(const Form &other) : Name(other.Name), SignIt(other.SignIt), ExeIt(other.ExeIt)
@@ -47,19 +39,11 @@ bool Form::isSignet()
 {
 	return this->si;
 }
-void Form::beSigned(Bureaucrat &b)
-{
-	// try
-	// {
-		if (b.getGrade() <= SignIt)
-			si = true;
-		else
-			throw GradeTooLowException();
-	// }
-	// catch (const std::exception &ex)
-	// {
-	// 	std::cerr << ex.what() << std::endl;;
-	// }
+void Form::beSigned(Bureaucrat &b){
+	if (b.getGrade() <= SignIt)
+		si = true;
+	else
+		throw GradeTooLowException();
 }
 
 void Form::Signed(bool s)

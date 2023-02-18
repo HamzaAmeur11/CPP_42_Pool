@@ -1,16 +1,16 @@
 #include "Intern.hpp"
 
 Intern::Intern(){
-    tab[0] = "ShrubberyCreationForm";
-    tab[1] = "RobotomyRequestForm";
-    tab[2] = "PresidentialPardonForm";
+    tab[0] = "shrubbery creation";
+    tab[1] = "robotomy request";
+    tab[2] = "presidential pardon";
 }
 
 Intern::Intern(const Intern &other){
     (void)other;
-    tab[0] = "ShrubberyCreationForm";
-    tab[1] = "RobotomyRequestForm";
-    tab[2] = "PresidentialPardonForm";
+    tab[0] = "shrubbery creation";
+    tab[1] = "robotomy request";
+    tab[2] = "presidential pardon";
 }
 
 Intern::~Intern(){ ; }
@@ -35,24 +35,23 @@ int Intern::checkForm(const std::string &name)
 
 AForm *Intern::makeForm(const std::string &name, const std::string &target){
     AForm *form = NULL;
-    //  try{
-        int i = checkForm(name);
-        switch (i)
-        {
-        case 0:
-            form = new ShrubberyCreationForm(target);
+    int i = checkForm(name);
+    switch (i)
+    {
+		case 0:
+			form = new ShrubberyCreationForm(target);
+            std::cout << "Intern creates " << name << "\n";
             break;
         case 1:
             form = new RobotomyRequestForm(target);
+            std::cout << "Intern creates " << name << "\n";
             break;
         case 2:
+            std::cout << "Intern creates " << name << "\n";
             form = new PresidentialPardonForm(target);
             break;
         default:
             break;
-        }
-    // }catch(const std::exception &ex){
-    //        std::cerr << "Cloudn't Creat a form Because : " << ex.what() << "\n";
-    // }
+    }
     return (form);
 }

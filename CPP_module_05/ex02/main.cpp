@@ -41,9 +41,9 @@ int main()
         RobotomyRequestForm d("robot");
         d.beSigned(c);
         d.execute(c);
-        PresidentialPardonForm s("wiwiw");
-        s.beSigned(a);
-        s.execute(a);
+        // PresidentialPardonForm s("wiwiw");
+        // s.beSigned(a);
+        // s.execute(a);
     }catch(const std::exception &ex){
         std::cerr << ex.what();
     }
