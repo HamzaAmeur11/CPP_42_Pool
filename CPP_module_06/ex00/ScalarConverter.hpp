@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <climits>
 #include <cmath>
 
 class ScalarConverter{
@@ -17,6 +18,6 @@ class ScalarConverter{
 		static void getChar(double);
 		static void getDbl(double);
 		static void getFlt(double);
-		static double checkInf(double);
-		static float checkInf(float);
+		static double checkDbl(double);
+		static float checkFlt(double);
 };

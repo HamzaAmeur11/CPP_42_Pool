@@ -15,6 +15,10 @@ void ScalarConverter::convert(std::string const &param){
     const char *str = param.c_str();
     char    *endPtr;
     double  D = strtod(str, &endPtr);
+    if (endPtr == str){
+        std::cout << "char :impossible\nint : impossible\nfloat :impossible\ndouble : impossible\n";
+        return ;
+    }
 
     ScalarConverter::getChar(D);
     ScalarConverter::getInt(D);
@@ -24,44 +28,45 @@ void ScalarConverter::convert(std::string const &param){
 
 void ScalarConverter::getChar(double D){
     std::string prnt;
-    if (isinf(D) == true)
+    if (std::isinf(D) == true || static_cast<int>(D) <= INT_MIN)
         prnt = "impossible";
-    else if (static_cast<int>(D) <= 32 || static_cast<int>(D) > 126)
+    else if (static_cast<int>(D) < 32 || static_cast<int>(D) > 126)
         prnt = "Non displayable";
-    else 
+    else
         prnt = static_cast<char> (D);
     std::cout << "char : " << prnt << std::endl;
 }
 
 void ScalarConverter::getInt(double D){
     std::string prnt;
-    if (isinf(D) == true || D < INT_MIN || D > INT_MAX)
+    if (std::isinf(D) == true || static_cast<int>(D) <= INT_MIN || static_cast<int>(D) > INT_MAX)
         prnt = "impossible";
-    else 
+    else
         prnt = std::to_string(static_cast<int>(D));
     std::cout << "int : " << prnt << std::endl;
 }
 
-double ScalarConverter::checkInf(double D){
-    if (isinf(D) == false)
+double ScalarConverter::checkDbl(double D){
+    if (std::isinf(D) == false)
         return D;
     if (D > 0)
         return INFINITY;
     else
         return -INFINITY;
 }
-float ScalarConverter::checkInf(float D){
-    if (isinf(D) == false)
-        return D;
-    if (D > 0)
+float ScalarConverter::checkFlt(double D){
+	float f =static_cast<float>(D);
+    if (std::isinf(f) == false)
+        return f;
+    if (f > 0)
         return INFINITY;
     else
         return -INFINITY;
 }
 
 void ScalarConverter::getDbl(double D){
-    std::cout << "double : " << std::setprecision(1) << ScalarConverter::checkInf(D) << std::endl;
+    std::cout << "double : " << std::fixed << std::setprecision(1) << ScalarConverter::checkDbl(D) << std::endl;
 }
 void ScalarConverter::getFlt(double D){
-    std::cout << "float : " << std::setprecision(1) << ScalarConverter::checkInf(static_cast<float>(D)) << std::endl;
+    std::cout << "float : " << std::fixed << std::setprecision(1) << ScalarConverter::checkFlt(D)<< "f" << std::endl;
 }
