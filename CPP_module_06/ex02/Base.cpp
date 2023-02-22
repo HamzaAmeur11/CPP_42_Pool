@@ -1,5 +1,7 @@
 #include "Base.hpp"
 
+Base::~Base() { ; } 
+
 Base    *generate(void)
 {
     srand(time(NULL));
@@ -38,24 +40,18 @@ void    identify(Base& p){
         (void)r; 
         std::cout << "& the actual type of the object is A\n";
         return ;
-    }catch (std::bad_cast& ex){
-        std::cerr << "Casting &A Err :" << ex.what() << "\n";
-    }
+    }catch (std::bad_cast& ex){ ; }
     try { 
         Base &r = dynamic_cast<B&>(p);
         (void)r; 
         std::cout << "& the actual type of the object is B\n";
         return ;
-    }catch (std::bad_cast& ex){
-        std::cerr << "Casting &B Err :" << ex.what() << "\n";
-    }
+    }catch (std::bad_cast& ex){ ; }
     try { 
         Base &r = dynamic_cast<C&>(p);
         (void)r; 
         std::cout << "& the actual type of the object is C\n";
         return ;
-    }catch (std::bad_cast& ex){
-        std::cerr << "Casting &C Err :" << ex.what() << "\n";
-    }
+    }catch (std::bad_cast& ex){ ;  }
     std::cerr << "Error castin\n" ;
 }
