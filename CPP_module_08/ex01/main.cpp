@@ -20,7 +20,7 @@ int main()
         srand(time(NULL));
         Span sp(10000);
         for(int i = 0; i < 10000; i++)
-            sp.addNumber(rand() % 5);
+            sp.addNumber(rand());
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }catch(const std::exception &ex){
