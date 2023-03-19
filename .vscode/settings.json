@@ -62,6 +62,7 @@
         "fstream": "cpp",
         "map": "cpp",
         "optional": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "sstream": "cpp"
     }
 }
