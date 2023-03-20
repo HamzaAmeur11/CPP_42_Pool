@@ -53,10 +53,13 @@ int BitcoinExchange::checkSyntax(std::string &line){
         addYMD(it, it2, line, d, ',') < 0)
         return -1;
     //VALUE
-    while ( it != line.end() && ((*it >= '0' && *it <= '9') || *it == '.'))
+    int j = 0;
+    while ( it != line.end() && ((*it >= '0' && *it <= '9') || *it == '.')){
         it++;
-    if (it != line.end() || (*(it - 1) == '.' && it == line.end()) 
-        || (*it <= '0' && *it >= '9'))
+        if (*it == '.')
+            j++;
+    }if (it != line.end() || (*(it - 1) == '.' && it == line.end()) 
+        || (*it <= '0' && *it >= '9') || j != 0)
         return -3;
     while (it2 != it){
         v.push_back(*it2);
