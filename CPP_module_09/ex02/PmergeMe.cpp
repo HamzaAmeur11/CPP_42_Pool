@@ -84,9 +84,8 @@ void mergeMe::mergeSortin(std::vector<int> &_vec){
     size_t middle = _vec.size() / 2;
     std::vector<int> left;
     std::vector<int> right;
-
     size_t i = 0;
-    std::cout << _vec.size() << "\n";
+    std::cout << "-------------------------------\n";
     std::vector<int>::iterator it = _vec.begin();
     while (it !=  _vec.end() && i < _vec.size()){
         std::cout << "it = " << *it << std::endl;
@@ -97,31 +96,40 @@ void mergeMe::mergeSortin(std::vector<int> &_vec){
         it++;
         i++;
     }
+    std::vector<int>::iterator it2 = left.begin();
+    std::vector<int>::iterator it3 = right.begin();
+
+    while (it2 != left.end())
+        {std::cout << "left = " << *it2 << "\n"; it2++;}
+    while (it3 != right.end())
+        {std::cout << "right = " << *it3 << "\n"; it3++;}
     this->mergeSortin(left);
     this->mergeSortin(right);
     this->merge(_vec, left, right);
 
 }
 
-
 void mergeMe::merge(std::vector<int>&vec, std::vector<int>&left, std::vector<int>&right){
     size_t l = 0, r = 0;
     std::vector<int>::iterator it = vec.begin(), itL = left.begin(), itR = right.begin();
+    std::cout << "lft  and right == == " << left.size() << "  " << right.size() << "\n";
+    
     while (l < left.size() && r < right.size()){
+        
         if (*itL < *itR){
             *it = *itL;
-            it++;itL++;
+            it++;itL++;l++;
         }else 
             *it = *itR;
-            it++;itR++;
+            it++;itR++;r++;
     }
     while (l < left.size()){
             *it = *itL;
-            it++;itL++;
+            it++;itL++;l++;
     }
     while (r < right.size()){
             *it = *itR;
-            it++;itR++;
+            it++;itR++;r++;
     }
 }
 
