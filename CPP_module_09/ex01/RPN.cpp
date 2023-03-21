@@ -28,6 +28,11 @@ void RPN::calcule(char op){
     st.push(ss.str());
 }
 
+const RPN& RPN::operator=(const RPN &other){
+    this->st = other.st;
+    return *this;
+}
+
 RPN::RPN(std::string& arg){
     std::string::iterator it = arg.begin();
     std::string s;

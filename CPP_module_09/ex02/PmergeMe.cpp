@@ -27,7 +27,6 @@ int mergeMe::parseDigits(std::string *args){
         _vec.push_back(std::atoi(args[i].c_str()));
         _list.push_back(std::atoi(args[i].c_str()));
     }
-        std::cout << "\n";
     return 0;
 }
 
@@ -130,13 +129,13 @@ void mergeMe::makeTime(){
     _time = __time.tv_sec * 1000000 + __time.tv_usec;;
 }
 
-void mergeMe::printCurrentTime(){
+void mergeMe::printCurrentTime(const std::string &con){
     struct timeval	__time;
 
 	gettimeofday(&__time, NULL);
     time_t current;
     current = __time.tv_sec * 1000000 + __time.tv_usec;;
-    std::cout << "Time :: " << current - _time << "\n";
+    std::cout << "Time to process a range of " << _vec.size() << " elements with std::" << con << " : " <<  (double)(current - _time) << " us \n";
 }
 
 
@@ -160,9 +159,9 @@ void mergeMe::beginSortin(){
         it++;
     }
     std::cout << std::endl;;
-    printCurrentTime();
+    printCurrentTime("vector");
 
     this->makeTime();
     this->mergeSortin(this->_list);
-    printCurrentTime();
+    printCurrentTime("list  ");
 }

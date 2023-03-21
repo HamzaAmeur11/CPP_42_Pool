@@ -10,8 +10,9 @@ class RPN{
     private:
         std::stack<std::string> st;
         RPN();
-        const RPN&operator=(const RPN&);
     public:
+    
+        const RPN&operator=(const RPN&);
         RPN(std::string&);
         ~RPN();
 

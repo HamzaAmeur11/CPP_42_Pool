@@ -35,9 +35,9 @@ int checkDate(std::string &date){
         it2++;
     }
     if (d.length() == 1)
-        d = "0"  + d;
+        d = "0" + d;
     if (BitcoinExchange::checkNum(y, 2022, 2009) < 0 || BitcoinExchange::checkNum(m, 12, 0) < 0 ||
-        BitcoinExchange::checkNum(d, 31, 0) < 0 || BitcoinExchange::checkDM(m, d) < 0)
+        BitcoinExchange::checkNum(d, 31, 0) < 0 || BitcoinExchange::checkDM(y ,m, d) < 0)
         return -4;
     date = y + "-" + m + "-" + d;
     if (date < "2009-01-02")
@@ -54,7 +54,6 @@ void FindAndPrint(std::string line, BitcoinExchange bts){
        return i++, (void)i;
     if (i == 0){
         std::cerr << "Error\n";
-        // exit(1);
     }
     std::string::iterator it = line.begin();
     std::string::iterator it2 = line.begin();
@@ -98,7 +97,7 @@ int main(int ac, char **av){
         return std::cout << "invalid file !!!" << std::endl, -1;
     else if (in.peek() == std::ifstream::traits_type::eof())
         return std::cout << "EMPTY file !!!" << std::endl, -1;
-    while (getline(in, line)){
+    while (getline(in, line))
         FindAndPrint(line, bts);
-    }
+    return 0;
 }
