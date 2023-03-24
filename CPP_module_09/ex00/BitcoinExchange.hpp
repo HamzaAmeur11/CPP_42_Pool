@@ -6,6 +6,8 @@
 #include <sstream>
 #include <ctime>
 #include <unistd.h>
+#include <iomanip>
+#include <math.h>
 
 class BitcoinExchange
 {

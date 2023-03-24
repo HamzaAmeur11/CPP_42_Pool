@@ -23,12 +23,8 @@ class mergeMe{
         int parseDigits(std::string *args);
         int isDigit(std::string arg);
         
-        // void merge(std::vector<int>&, std::vector<int>&, std::vector<int>&);
-        // virtual void merge(std::list<int>&, std::list<int>&, std::list<int>&); 
         void makeTime();
         void printCurrentTime(const std::string &);;
-        // virtual void mergeSortin(std::list<int> &);
-        // virtual void mergeSortin(std::vector<int>&);
         void beginSortin();
 
         template <typename Container>
