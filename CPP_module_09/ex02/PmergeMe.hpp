@@ -28,9 +28,35 @@ class mergeMe{
         void beginSortin();
 
         template <typename Container>
+        void insertionSort(Container &cont){
+            typedef typename Container::iterator iterator;
+
+            iterator it, it2, it3;
+            int key;
+            for(it = cont.begin(); it != cont.end(); ++it){
+                it2 = it;
+                while (it2 != cont.begin()){
+                    it3 = it2;
+                    --it3;
+                    if(*it2 < *it3){
+                        //swap
+                        key = *it2;
+                        *it2 = *it3;
+                        *it3 = key;
+
+                        it2 = it3;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        template <typename Container>
         void mergeSortin(Container &cont){
-            if (cont.size() < 2)
-                return ;
+            if (cont.size() < 10)
+                return insertionSort(cont);
             size_t middle = cont.size() / 2;
             size_t i = 0;
             Container left;
